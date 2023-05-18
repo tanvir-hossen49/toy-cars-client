@@ -70,7 +70,7 @@ export function Navbar() {
 
   return (
     <div className="relative w-full bg-white">
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-2 sm:px-6 lg:px-8">
+      <div className="flex items-center justify-between my-container">
         <div className="inline-flex items-center space-x-2">
           <span>
             <img src={logo} alt="logo" className="w-28 h-24" />
@@ -95,7 +95,9 @@ export function Navbar() {
               </button>
             </div>
           ) : (
-            <button className="btn btn-block">Log In</button>
+            <Link to="signin">
+              <button className="btn btn-block">Log In</button>
+            </Link>
           )}
         </div>
 
@@ -111,7 +113,7 @@ export function Navbar() {
                     <span>
                       <img src={logo} alt="logo" className="w-28 h-20" />
                     </span>
-                    <span className="font-bold">DevUI</span>
+                    <span className="font-bold">Turbo Toys</span>
                   </div>
                   <div className="-mr-2">
                     <button
@@ -136,12 +138,17 @@ export function Navbar() {
                         className="mx-auto mb-5 w-16 object-cover h-16 rounded-full"
                         title={user?.displayName}
                       />
-                      <button className="btn btn-block btn-outline">
+                      <button
+                        onClick={handleSignOut}
+                        className="btn btn-block btn-outline"
+                      >
                         Sign Out
                       </button>
                     </div>
                   ) : (
-                    <button className="btn btn-block">Log In</button>
+                    <Link to="signin">
+                      <button className="btn btn-block">Log In</button>
+                    </Link>
                   )}
                 </div>
               </div>

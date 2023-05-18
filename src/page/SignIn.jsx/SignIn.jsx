@@ -1,7 +1,7 @@
 import { ArrowRight } from "lucide-react";
 import logo from "../../assets/logo.png";
 import SocialMedia from "../Shared/SocialMedia";
-
+import { Link } from "react-router-dom";
 export function SingIn() {
   return (
     <div className="flex items-center justify-center px-4 py-10 sm:px-6 sm:py-16 lg:px-8 lg:py-24">
@@ -14,13 +14,13 @@ export function SingIn() {
         </h2>
         <p className="mt-2 text-center text-sm text-gray-600 ">
           Don&apos;t have an account?{" "}
-          <a
-            href="#"
+          <Link
+            to="/signup"
             title=""
             className="font-semibold text-black transition-all duration-200 hover:underline"
           >
             Create a free account
-          </a>
+          </Link>
         </p>
         <form className="mt-8">
           <div className="space-y-5">

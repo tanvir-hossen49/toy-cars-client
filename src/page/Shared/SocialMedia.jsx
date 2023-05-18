@@ -1,11 +1,15 @@
 import { useContext } from "react";
 import { AuthContext } from "../../provider/AuthProvider";
+import { toast } from "react-toastify";
+import { showToast } from "../../utilities/ShowToast";
 
 const SocialMedia = () => {
   const { googleLogin } = useContext(AuthContext);
 
   const handleGoogleLogin = () => {
-    googleLogin();
+    googleLogin().then(() => {
+      showToast("success", "login successful");
+    });
   };
 
   return (

@@ -3,13 +3,13 @@ import { Menu, X } from "lucide-react";
 import logo from "../../assets/logo.png";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../provider/AuthProvider";
+import { showToast } from "../../utilities/ShowToast";
 
 export function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const { user } = useContext(AuthContext);
+  const { user, logout } = useContext(AuthContext);
 
-  console.log(user);
   const navItems = (
     <>
       <li>
@@ -62,6 +62,11 @@ export function Navbar() {
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
+  const handleSignOut = () => {
+    logout().then(() => {
+      showToast("success", "logout successful");
+    });
+  };
 
   return (
     <div className="relative w-full bg-white">
@@ -85,7 +90,9 @@ export function Navbar() {
                 className="w-10 h-10 rounded-full object-cover"
                 title={user?.displayName}
               />
-              <button className="btn btn-outline">Sign Out</button>
+              <button onClick={handleSignOut} className="btn btn-outline">
+                Sign Out
+              </button>
             </div>
           ) : (
             <button className="btn btn-block">Log In</button>

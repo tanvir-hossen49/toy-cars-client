@@ -7,7 +7,7 @@ export function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const user = {
-    email: "thossen49@gmail.com",
+    // email: "thossen49@gmail.com",
     displayName: "tanvir",
     img: "https://picsum.photos/500/300?random=1",
   };
@@ -30,22 +30,26 @@ export function Navbar() {
           All Toys
         </Link>
       </li>
-      <li>
-        <Link
-          to=""
-          className="text-base font-semibold text-gray-800 hover:text-gray-900"
-        >
-          My Toys
-        </Link>
-      </li>
-      <li>
-        <Link
-          to=""
-          className="text-base font-semibold text-gray-800 hover:text-gray-900"
-        >
-          Add A Toy
-        </Link>
-      </li>
+      {user?.email && (
+        <>
+          <li>
+            <Link
+              to=""
+              className="text-base font-semibold text-gray-800 hover:text-gray-900"
+            >
+              My Toys
+            </Link>
+          </li>
+          <li>
+            <Link
+              to=""
+              className="text-base font-semibold text-gray-800 hover:text-gray-900"
+            >
+              Add A Toy
+            </Link>
+          </li>
+        </>
+      )}
       <li>
         <Link
           to=""

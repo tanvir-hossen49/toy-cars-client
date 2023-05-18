@@ -1,17 +1,15 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Menu, X } from "lucide-react";
 import logo from "../../assets/logo.png";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../provider/AuthProvider";
 
 export function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const user = {
-    // email: "thossen49@gmail.com",
-    displayName: "tanvir",
-    img: "https://picsum.photos/500/300?random=1",
-  };
+  const { user } = useContext(AuthContext);
 
+  console.log(user);
   const navItems = (
     <>
       <li>
@@ -82,7 +80,7 @@ export function Navbar() {
           {user?.email ? (
             <div className="flex items-center gap-5">
               <img
-                src={user?.img}
+                src={user?.photoURL}
                 alt="user img"
                 className="w-10 h-10 rounded-full object-cover"
                 title={user?.displayName}
@@ -126,7 +124,7 @@ export function Navbar() {
                   {user?.email ? (
                     <div className="">
                       <img
-                        src={user?.img}
+                        src={user?.photoURL}
                         alt="user img"
                         className="mx-auto mb-5 w-16 object-cover h-16 rounded-full"
                         title={user?.displayName}

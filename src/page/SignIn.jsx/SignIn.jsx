@@ -2,7 +2,8 @@ import { ArrowRight } from "lucide-react";
 import logo from "../../assets/logo.png";
 import SocialMedia from "../Shared/SocialMedia";
 import { Link } from "react-router-dom";
-export function SingIn() {
+
+const SignIn = () => {
   return (
     <div className="flex items-center justify-center px-4 py-10 sm:px-6 sm:py-16 lg:px-8 lg:py-24">
       <div className="xl:mx-auto xl:w-full xl:max-w-sm 2xl:max-w-md">
@@ -65,4 +66,5 @@ export function SingIn() {
       </div>
     </div>
   );
-}
+};
+export default SignIn;

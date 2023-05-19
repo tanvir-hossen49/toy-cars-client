@@ -4,8 +4,9 @@ import logo from "../../assets/logo.png";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../provider/AuthProvider";
 import { showToast } from "../../utilities/ShowToast";
+import Swal from "sweetalert2";
 
-export function Navbar() {
+const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const { user, logout } = useContext(AuthContext);
@@ -63,8 +64,19 @@ export function Navbar() {
     setIsMenuOpen(!isMenuOpen);
   };
   const handleSignOut = () => {
-    logout().then(() => {
-      showToast("success", "logout successful");
+    Swal.fire({
+      title: "Are you sure?",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Sign out",
+    }).then(result => {
+      if (result.isConfirmed) {
+        logout().then(() => {
+          showToast("success", "Sign out successful");
+        });
+      }
     });
   };
 
@@ -158,4 +170,5 @@ export function Navbar() {
       </div>
     </div>
   );
-}
+};
+export default Navbar;

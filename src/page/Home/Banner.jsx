@@ -1,6 +1,6 @@
 const Banner = () => {
   return (
-    <div className="carousel mx-4 lg:h-[600px]">
+    <div className="carousel  lg:h-[600px]">
       <div id="slide1" className="carousel-item relative w-full ">
         <img src="https://i.ibb.co/PWBfR0g/download.webp" className="w-full " />
 
@@ -13,7 +13,7 @@ const Banner = () => {
           </a>
         </div>
 
-        <div className="text-5xl  absolute top-1/4  left-20 z-40 hidden lg:block w-1/2">
+        <div className="text-5xl  absolute top-1/4  left-20 hidden lg:block w-1/2">
           <h4 className="text-3xl text-white font-bold italic tracking-wider">
             Welcome
           </h4>
@@ -38,7 +38,7 @@ const Banner = () => {
           </a>
         </div>
 
-        <div className="text-5xl absolute top-1/4  left-20 z-40 hidden lg:block w-1/2">
+        <div className="text-5xl absolute top-1/4  left-20  hidden lg:block w-1/2">
           <h4 className="text-3xl text-white font-bold italic tracking-wider">
             welcome
           </h4>

@@ -9,12 +9,42 @@ li {
 body {
   font-family: "Poppins", sans-serif;
 }
+
 .my-container {
-  @apply mx-auto max-w-7xl px-4 py-2 sm:px-6 lg:px-8;
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
 }
+
+@media (min-width: 576px) {
+  .my-container {
+    max-width: 540px;
+  }
+}
+
+@media (min-width: 768px) {
+  .my-container {
+    max-width: 720px;
+  }
+}
+
+@media (min-width: 992px) {
+  .my-container {
+    max-width: 960px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .my-container {
+    max-width: 1140px;
+  }
+}
+
 .img-wrapper {
-  overflow: hidden;
   border-radius: 8px;
+  overflow: hidden;
 }
 .img-wrapper img {
   transition: transform 0.3s;
@@ -22,4 +52,5 @@ body {
 .img-wrapper img:hover {
   border-radius: 8px;
   transform: scale(1.1);
+  filter: grayscale(100%);
 }

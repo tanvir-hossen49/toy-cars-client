@@ -13,12 +13,12 @@ const Banner = () => {
           </a>
         </div>
 
-        <div className="text-5xl w-full absolute top-1/4  left-20 z-40 hidden lg:block w-2/4">
+        <div className="text-5xl  absolute top-1/4  left-20 z-40 hidden lg:block w-1/2">
           <h4 className="text-3xl text-white font-bold italic tracking-wider">
-            The Essentials
+            Welcome
           </h4>
           <h1 className="text-6xl text-white font-extrabold leading-normal">
-            BABY TOYS
+            Turbo Toys
           </h1>
           <p className="text-3xl text-white font-semibold">
             Check out - and check off - our list of must - haves for the new
@@ -38,16 +38,15 @@ const Banner = () => {
           </a>
         </div>
 
-        <div className="text-5xl w-full absolute top-1/4  left-20 z-40 hidden lg:block w-2/4">
+        <div className="text-5xl absolute top-1/4  left-20 z-40 hidden lg:block w-1/2">
           <h4 className="text-3xl text-white font-bold italic tracking-wider">
-            The Essentials
+            welcome
           </h4>
           <h1 className="text-6xl text-white font-extrabold leading-normal">
-            BABY TOYS
+            Turbo Toys
           </h1>
           <p className="text-3xl text-white font-semibold  ">
-            Check out - and check off - our list of must - haves for the new
-            arrival
+            kid-friendly stuff at parent-friendly prices
           </p>
         </div>
       </div>

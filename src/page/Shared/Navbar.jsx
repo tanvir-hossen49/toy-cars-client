@@ -63,6 +63,7 @@ const Navbar = () => {
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
+  
   const handleSignOut = () => {
     Swal.fire({
       title: "Are you sure?",

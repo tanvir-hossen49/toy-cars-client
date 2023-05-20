@@ -1,6 +1,6 @@
 const Gallery = () => {
   return (
-    <div className="my-container my-4">
+    <div className="my-container">
       <h4 className="text-center leading-snug my-5 text-2xl md:text-3xl font-semibold">
         Discover a Miniature World
         <br />

@@ -3,6 +3,7 @@ import ReviewCard from "./ReviewCard";
 
 const CustomerReviews = () => {
   const [reviews, setReviews] = useState([]);
+  const [isShow, setIsShow] = useState(false);
 
   useEffect(() => {
     fetch("http://localhost:5000/customer-review")
@@ -17,13 +18,13 @@ const CustomerReviews = () => {
       </h2>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mt-5">
-        {reviews?.map(review => (
+        {reviews.slice(0, isShow ? reviews.length : 2).map(review => (
           <ReviewCard key={review._id} review={review} />
         ))}
       </div>
 
-      <div className="text-center mt-8">
-        <button className="btn px-8">View More</button>
+      <div onClick={() => setIsShow(!isShow)} className="text-center mt-8">
+        <button className="btn px-8">{isShow ? "hide all" : "view all"}</button>
       </div>
     </div>
   );

@@ -33,21 +33,21 @@ const Categories = () => {
         </TabList>
 
         <TabPanel>
-          <div className="grid grid-cols-3 gap-5">
+          <div className="grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-5">
             {categories.map(category => (
               <Category key={category._id} category={category} />
             ))}
           </div>
         </TabPanel>
         <TabPanel>
-          <div className="grid grid-cols-3 gap-5">
+          <div className="grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-5">
             {categories.map(category => (
               <Category key={category._id} category={category} />
             ))}
           </div>
         </TabPanel>
         <TabPanel>
-          <div className="grid grid-cols-3 gap-5">
+          <div className="grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-5">
             {categories.map(category => (
               <Category key={category._id} category={category} />
             ))}

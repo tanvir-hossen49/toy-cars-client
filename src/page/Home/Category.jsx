@@ -10,9 +10,9 @@ const Category = ({ category }) => {
       <div className="p-4 h-1/2  flex flex-col">
         <h1 className="text-2xl font-semibold">{toyName}</h1>
 
-        <div className="flex justify-between items-center">
-          <p className="mt-3 text-2xl text-gray-600">{price}</p>
-          <p className="mt-3 text-2xl text-gray-600">{ratings}</p>
+        <div className="flex justify-between flex-wrap items-center">
+          <p className="mt-3 text-2xl text-gray-600">${price}</p>
+          <p className="mt-3 text-2xl text-gray-600">Ratings:{ratings}</p>
         </div>
 
         <button className="btn btn-block text-xl mt-auto mb-5">

@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 import { Menu, X } from "lucide-react";
 import logo from "../../assets/logo.png";
-import { Link } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import { AuthContext } from "../../provider/AuthProvider";
 import { showToast } from "../../utilities/ShowToast";
 import Swal from "sweetalert2";
@@ -13,49 +13,59 @@ const Navbar = () => {
 
   const navItems = (
     <>
-      <li>
-        <Link
-          to=""
-          className="text-base font-semibold text-gray-800 hover:text-gray-900"
+      <li className="list-none">
+        <NavLink
+          to="/"
+          className={`text-base font-semibold text-gray-800 hover:text-gray-900 ${({
+            isActive,
+          }) => (isActive ? "active" : "")}`}
         >
           Home
-        </Link>
+        </NavLink>
       </li>
-      <li>
-        <Link
-          to=""
-          className="text-base font-semibold text-gray-800 hover:text-gray-900"
+      <li className="list-none">
+        <NavLink
+          to="all-toys"
+          className={`text-base font-semibold text-gray-800 hover:text-gray-900 ${({
+            isActive,
+          }) => (isActive ? "active" : "")}`}
         >
           All Toys
-        </Link>
+        </NavLink>
       </li>
       {user?.email && (
         <>
-          <li>
-            <Link
-              to=""
-              className="text-base font-semibold text-gray-800 hover:text-gray-900"
+          <li className="list-none">
+            <NavLink
+              to="my-toys"
+              className={`text-base font-semibold text-gray-800 hover:text-gray-900 ${({
+                isActive,
+              }) => (isActive ? "active" : "")}`}
             >
               My Toys
-            </Link>
+            </NavLink>
           </li>
-          <li>
-            <Link
-              to=""
-              className="text-base font-semibold text-gray-800 hover:text-gray-900"
+          <li className="list-none">
+            <NavLink
+              to="add-a-toy"
+              className={`text-base font-semibold text-gray-800 hover:text-gray-900 ${({
+                isActive,
+              }) => (isActive ? "active" : "")}`}
             >
               Add A Toy
-            </Link>
+            </NavLink>
           </li>
         </>
       )}
-      <li>
-        <Link
-          to=""
-          className="text-base font-semibold text-gray-800 hover:text-gray-900"
+      <li className="list-none">
+        <NavLink
+          to="blog"
+          className={`text-base font-semibold text-gray-800 hover:text-gray-900 ${({
+            isActive,
+          }) => (isActive ? "active" : "")}`}
         >
           Blogs
-        </Link>
+        </NavLink>
       </li>
     </>
   );
@@ -63,7 +73,7 @@ const Navbar = () => {
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
-  
+
   const handleSignOut = () => {
     Swal.fire({
       title: "Are you sure?",

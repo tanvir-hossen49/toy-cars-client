@@ -10,7 +10,7 @@ const Categories = () => {
   const [activeTab, setActiveTab] = useState("Sports Cars");
   //https://toy-car-server-five.vercel.app/category/${activeTab}
   useEffect(() => {
-    fetch(`http://localhost:5000/category/${activeTab}`)
+    fetch(`https://toy-car-server-five.vercel.app/category/${activeTab}`)
       .then(res => res.json())
       .then(data => setCategories(data));
   }, [activeTab]);

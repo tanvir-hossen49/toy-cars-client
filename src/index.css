@@ -3,9 +3,6 @@
 @tailwind components;
 @tailwind utilities;
 
-li {
-  list-style: none;
-}
 body {
   font-family: "Poppins", sans-serif;
 }
@@ -64,4 +61,7 @@ body {
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
+}
+.active {
+  color: rgb(92, 176, 255);
 }

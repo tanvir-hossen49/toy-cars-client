@@ -6,7 +6,7 @@ const CustomerReviews = () => {
   const [isShow, setIsShow] = useState(false);
 
   useEffect(() => {
-    fetch("http://localhost:5000/customer-review")
+    fetch("https://toy-car-server-five.vercel.app/customer-review")
       .then(res => res.json())
       .then(data => setReviews(data));
   });

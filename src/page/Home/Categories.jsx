@@ -17,7 +17,9 @@ const Categories = () => {
 
   return (
     <div className="my-container">
-      <h2 className="text-center font-bold text-3xl mb-5">Shop By Category</h2>
+      <h2 className="text-center font-bold md:text-4xl text-3xl mb-5 section-header">
+        Shop By Category
+      </h2>
 
       <Tabs>
         <TabList className="px-5 py-5 flex  bg-orange-100 rounded-lg justify-center gap-5">

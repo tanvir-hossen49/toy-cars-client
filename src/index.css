@@ -42,15 +42,26 @@ body {
   }
 }
 
-.img-wrapper {
+.gallery-img-wrapper {
   border-radius: 8px;
   overflow: hidden;
 }
-.img-wrapper img {
+.gallery-img-wrapper img {
   transition: transform 0.3s;
 }
-.img-wrapper img:hover {
+.gallery-img-wrapper img:hover {
   border-radius: 8px;
   transform: scale(1.1);
   filter: grayscale(100%);
+}
+
+.section-header {
+  background: linear-gradient(
+    45deg,
+    rgba(34, 164, 116, 1) 0%,
+    rgba(41, 47, 143, 1) 100%
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
 }

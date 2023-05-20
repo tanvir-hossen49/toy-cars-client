@@ -13,7 +13,7 @@ const CustomerReviews = () => {
 
   return (
     <div className="my-container">
-      <h2 className="text-center text-4xl font-bold">
+      <h2 className="text-center text-3xl md:text-4xl font-bold section-header">
         Read what our customers say
       </h2>
 

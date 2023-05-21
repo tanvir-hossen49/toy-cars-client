@@ -2,23 +2,47 @@ import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../provider/AuthProvider";
 import { Edit, Trash2 } from "lucide-react";
 import useTitle from "../Hook/useTitle";
+import { showToast } from "../../utilities/ShowToast";
+import Swal from "sweetalert2";
+import { Link } from "react-router-dom";
 
 const MyToys = () => {
   const { user } = useContext(AuthContext);
   const [myToys, setMyToys] = useState([]);
+
   useTitle("My Toy");
+
   const handleDelete = id => {
-    fetch(`http://localhost:5000/my-toys/${id}`, {
-      method: "DELETE",
-    })
-      .then(res => res.json())
-      .then();
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then(result => {
+      if (result.isConfirmed) {
+        fetch(`http://localhost:5000/my-toys/${id}`, {
+          method: "DELETE",
+        })
+          .then(res => res.json())
+          .then(data => {
+            if (data.deletedCount === 1) {
+              const remining = myToys.filter(myToy => myToy._id !== id);
+              setMyToys(remining);
+              showToast("Toy Deleted");
+            }
+          });
+      }
+    });
   };
 
   useEffect(() => {
     fetch(`http://localhost:5000/my-toys?email=${user?.email}`)
       .then(res => res.json())
       .then(data => setMyToys(data));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -55,16 +79,19 @@ const MyToys = () => {
                 </td>
                 <td>{myToy.sellerName}</td>
                 <td>{myToy.name}</td>
-                <td>{myToy.price}</td>
+                <td>${myToy.price}</td>
                 <td>{myToy.quantity}</td>
                 <td className="flex items-center gap-5 ">
-                  <span className="cursor-pointer p-2 ">
+                  <Link
+                    to={`/my-toy/${myToy._id}`}
+                    className="cursor-pointer p-2 hover:bg-slate-300 hover:rounded-lg"
+                  >
                     <Edit />
-                  </span>
+                  </Link>
 
                   <span
                     onClick={() => handleDelete(myToy._id)}
-                    className="cursor-pointer p-2"
+                    className="cursor-pointer p-2 hover:bg-slate-300 hover:rounded-lg"
                   >
                     <Trash2 />
                   </span>

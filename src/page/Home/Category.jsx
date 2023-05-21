@@ -2,12 +2,11 @@ import { Link } from "react-router-dom";
 import RatingComponent from "../Shared/RatingComponent";
 const Category = ({ category }) => {
   const { _id, toyName, price, image, ratings } = category;
-
   return (
     <div className="w-full mt-5 relative rounded-md border overflow-hidden space-y-5">
       <img
         src={image}
-        alt="Laptop"
+        alt=""
         className="h-1/2 hover:scale-105 transition-transform duration-300  w-full rounded-md object-cover"
       />
       <div className="p-4 h-1/2  flex flex-col">

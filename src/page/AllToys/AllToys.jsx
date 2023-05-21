@@ -1,11 +1,11 @@
 import { SearchIcon } from "lucide-react";
 import { useState } from "react";
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 
 const AllToys = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const toysData = useLoaderData();
-
+  console.log(toysData);
   const handleSearchChange = e => {
     setSearchQuery(e.target.value);
   };
@@ -58,7 +58,9 @@ const AllToys = () => {
               <td>{toy.price}</td>
               <td>{toy.quantity}</td>
               <td>
-                <button className="btn btn-outline">View Details</button>
+                <Link to={`/toy/${toy._id}`} className="btn btn-outline">
+                  View Details
+                </Link>
               </td>
             </tr>
           ))}

@@ -7,6 +7,7 @@ import ErrorPage from "../page/ErrorPage/ErrorPage";
 import Blog from "../page/Blog/Blog";
 import AllToys from "../page/AllToys/AllToys";
 import ToyDetails from "../page/Shared/ToyDetails";
+import PrivateRoutes from "./PrivateRoutes";
 
 export const router = createBrowserRouter([
   {
@@ -32,13 +33,22 @@ export const router = createBrowserRouter([
       },
       {
         path: "all-toys",
-        element: <AllToys />,
+        element: (
+          <PrivateRoutes>
+            <AllToys />
+          </PrivateRoutes>
+        ),
         loader: () => fetch("https://toy-car-server-five.vercel.app/all-toys"),
       },
       {
-        path: "/toy/:id",
-        element: <ToyDetails />,
-        loader: ({ params }) => fetch(`http://localhost:5000/toy/${params.id}`),
+        path: "toy/:id",
+        element: (
+          <PrivateRoutes>
+            <ToyDetails />
+          </PrivateRoutes>
+        ),
+        loader: ({ params }) =>
+          fetch(`https://toy-car-server-five.vercel.app/toy/${params.id}`),
       },
     ],
   },

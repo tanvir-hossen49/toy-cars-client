@@ -53,7 +53,7 @@ export const router = createBrowserRouter([
           <PrivateRoutes>
             <MyToys />
           </PrivateRoutes>
-        ),
+        )
       },
       {
         path: "add-toys",

@@ -1,18 +1,53 @@
+import { useContext } from "react";
+import { showToast } from "../../utilities/ShowToast";
+import { AuthContext } from "../../provider/AuthProvider";
+import useTitle from "../Hook/useTitle";
+
 const AddToys = () => {
+  const { user } = useContext(AuthContext);
+  useTitle("Add Toy");
   const handleSubmit = async e => {
     e.preventDefault();
+
+    const form = e.target;
+    const name = form.name.value;
+    const sellerName = form.sellerName.value;
+    const sellerEmail = form.sellerEmail.value;
+    const photoURL = form.photoURL.value;
+    const subCategory = form.subCategory.value;
+    const price = form.price.value;
+    const ratings = form.ratings.value;
+    const quantity = form.quantity.value;
+    const description = form.description.value;
+
+    const product = {
+      name,
+      sellerName,
+      sellerEmail,
+      photoURL,
+      subCategory,
+      price,
+      ratings,
+      quantity,
+      description,
+    };
+
     try {
-      // Send form data to the server
-      await fetch("/api/toys", {
+      const response = await fetch("http://localhost:5000/toy", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(),
+        body: JSON.stringify(product),
       });
-      // Handle successful submission (e.g., show a success message, redirect)
+      const data = await response.json();
+
+      if (data.insertedId) {
+        showToast("success", "Toy added successful");
+        form.reset();
+      }
     } catch (error) {
-      // Handle error (e.g., display an error message)
+      console.log(error);
     }
   };
 
@@ -32,6 +67,8 @@ const AddToys = () => {
               id="name"
               name="name"
               className="input input-bordered w-full "
+              required
+              placeholder="toy name"
             />
           </div>
 
@@ -43,7 +80,9 @@ const AddToys = () => {
             <input
               type="text"
               id="seller-name"
-              name="SellerName"
+              name="sellerName"
+              readOnly
+              value={user.displayName}
               className="input input-bordered w-full "
             />
           </div>
@@ -56,9 +95,11 @@ const AddToys = () => {
               <span className="label-text"> Seller Email</span>
             </label>
             <input
-              type="text"
+              type="email"
               id="seller-email"
-              name="SellerEmail"
+              name="sellerEmail"
+              readOnly
+              value={user.email}
               className="input input-bordered w-full "
             />
           </div>
@@ -69,9 +110,11 @@ const AddToys = () => {
               <span className="label-text"> Photo URL</span>
             </label>
             <input
-              type="text"
+              type="url"
               id="photo-url"
               name="photoURL"
+              placeholder="photo url"
+              required
               className="input input-bordered w-full "
             />
           </div>
@@ -89,9 +132,9 @@ const AddToys = () => {
               name="subCategory"
               className="input input-bordered w-full "
             >
-              <option value="math">Sports Cars</option>
-              <option value="language">Police Car</option>
-              <option value="science">Truck</option>
+              <option value="Sports Cars">Sports Cars</option>
+              <option value="Police Car">Police Car</option>
+              <option value="Truck">Truck</option>
             </select>
           </div>
 
@@ -104,6 +147,8 @@ const AddToys = () => {
               type="text"
               id="price"
               name="price"
+              placeholder="toy price"
+              required
               className="input input-bordered w-full "
             />
           </div>
@@ -119,6 +164,8 @@ const AddToys = () => {
               type="text"
               id="ratings"
               name="ratings"
+              placeholder="toy ratings"
+              required
               className="input input-bordered w-full "
             />
           </div>
@@ -129,9 +176,11 @@ const AddToys = () => {
               <span className="label-text"> Available quantity</span>
             </label>
             <input
-              type="text"
+              type="number"
               id="quantity"
               name="quantity"
+              placeholder="available quantity"
+              required
               className="input input-bordered w-full "
             />
           </div>
@@ -144,7 +193,8 @@ const AddToys = () => {
           </label>
           <textarea
             className="textarea input-bordered"
-            placeholder="Bio"
+            placeholder="description"
+            name="description"
           ></textarea>
         </div>
 

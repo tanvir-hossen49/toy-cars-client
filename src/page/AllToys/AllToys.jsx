@@ -1,17 +1,18 @@
 import { SearchIcon } from "lucide-react";
 import { useState } from "react";
 import { Link, useLoaderData } from "react-router-dom";
+import useTitle from "../Hook/useTitle";
 
 const AllToys = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const toysData = useLoaderData();
-  console.log(toysData);
+  useTitle("All Toy");
   const handleSearchChange = e => {
     setSearchQuery(e.target.value);
   };
 
   const filteredToys = toysData.filter(toy =>
-    toy.toyName.toLowerCase().includes(searchQuery.toLowerCase())
+    toy.name.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
   return (
@@ -44,7 +45,7 @@ const AllToys = () => {
             <th>Sub-category</th>
             <th>Price</th>
             <th>Available Quantity</th>
-            <th>Active</th>
+            <th>Action</th>
           </tr>
         </thead>
 
@@ -53,8 +54,8 @@ const AllToys = () => {
             <tr key={index}>
               <td>{index + 1}</td>
               <td>{toy.sellerName}</td>
-              <td>{toy.toyName}</td>
-              <td>{toy.subcategory}</td>
+              <td>{toy.name}</td>
+              <td>{toy.subCategory}</td>
               <td>{toy.price}</td>
               <td>{toy.quantity}</td>
               <td>

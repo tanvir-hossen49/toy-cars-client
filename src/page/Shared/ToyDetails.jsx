@@ -3,22 +3,30 @@ import RatingComponent from "./RatingComponent";
 
 const ToyDetails = () => {
   const toyData = useLoaderData();
-  
-  const { toyName, description, image, price, quantity, ratings, sellerName } =
-    toyData;
+
+  const {
+    name,
+    description,
+    photoURL,
+    price,
+    quantity,
+    ratings,
+    sellerName,
+    sellerEmail,
+  } = toyData;
   return (
     <div className="my-container">
       <div className="block grid-cols-9 items-start gap-x-10 pb-10 pt-7 lg:grid lg:pb-14 xl:gap-x-14 2xl:pb-20">
         <div className="col-span-4 ">
           <div className=" transition duration-150 ease-in hover:opacity-90">
-            <img src={image} alt="" className="w-full object-cover" />
+            <img src={photoURL} alt="" className="w-full object-cover" />
           </div>
         </div>
 
         <div className="col-span-5 pt-8 lg:pt-0">
           <div className="mb-7 border-b border-gray-300 pb-7">
             <h2 className="text-heading mb-3.5 text-lg font-bold md:text-xl lg:text-2xl 2xl:text-3xl">
-              {toyName}
+              {name}
             </h2>
             <p className="text-body text-sm leading-6  lg:text-base lg:leading-8">
               {description}
@@ -48,7 +56,7 @@ const ToyDetails = () => {
                   Name: {sellerName}
                 </p>
                 <p className="text-heading mb-2.5 text-base font-light capitalize md:text-lg">
-                  Email: thossen49@gmail.com
+                  Email: {sellerEmail}
                 </p>
               </div>
             </div>

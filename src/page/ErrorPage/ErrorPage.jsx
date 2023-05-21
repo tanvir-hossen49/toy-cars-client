@@ -1,7 +1,9 @@
 import { ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
+import useTitle from "../Hook/useTitle";
 
 const ErrorPage = () => {
+  useTitle("Error");
   return (
     <div className="my-container flex items-center justify-center px-2 md:my-28 md:px-0">
       <div className="lg:flex lg:items-center lg:space-x-10">

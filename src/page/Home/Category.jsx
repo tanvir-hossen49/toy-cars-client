@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom";
 import RatingComponent from "../Shared/RatingComponent";
 const Category = ({ category }) => {
-  const { _id, toyName, price, image, ratings } = category;
+  const { _id, toyName, price, photoURL, ratings } = category;
   return (
     <div className="w-full mt-5 relative rounded-md border overflow-hidden space-y-5">
       <img
-        src={image}
+        src={photoURL}
         alt=""
         className="h-1/2 hover:scale-105 transition-transform duration-300  w-full rounded-md object-cover"
       />

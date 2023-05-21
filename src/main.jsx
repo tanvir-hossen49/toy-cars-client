@@ -8,10 +8,12 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
-    <AuthProvider>
-      <RouterProvider router={router} />
-    </AuthProvider>
-    <ToastContainer />
-  </React.StrictMode>
+  <div className="max-w-7xl mx-auto">
+    <React.StrictMode>
+      <AuthProvider>
+        <RouterProvider router={router} />
+      </AuthProvider>
+      <ToastContainer />
+    </React.StrictMode>
+  </div>
 );

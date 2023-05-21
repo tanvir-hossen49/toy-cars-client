@@ -1,13 +1,12 @@
 const Gallery = () => {
   return (
     <div className="my-container">
-      <h4 className="text-center section-header leading-snug my-5 md:text-4xl text-3xl font-semibold">
+      <h4 className="text-center section-header leading-snug my-5 md:text-4xl text-2xl font-semibold">
         Discover a Miniature World
         <br />
-        Explore Our Toy Car{" "}
-        <span className="underline  decoration-wavy">Image Gallery</span>
+        Explore Our Toy Car Image Gallery
       </h4>
-      <div className="-m-1 flex flex-wrap md:-m-2">
+      <div className="flex flex-wrap ">
         <div className="flex md:w-1/2 flex-wrap">
           <div className="w-1/2 p-1 md:p-2 gallery-img-wrapper">
             <img

@@ -5,6 +5,8 @@ import SignIn from "../page/SignIn.jsx/SignIn";
 import SignUp from "../page/SignUp/SignUp";
 import ErrorPage from "../page/ErrorPage/ErrorPage";
 import Blog from "../page/Blog/Blog";
+import AllToys from "../page/AllToys/AllToys";
+import ToyDetails from "../page/Shared/ToyDetails";
 
 export const router = createBrowserRouter([
   {
@@ -27,6 +29,16 @@ export const router = createBrowserRouter([
       {
         path: "blog",
         element: <Blog />,
+      },
+      {
+        path: "all-toys",
+        element: <AllToys />,
+        loader: () => fetch("https://toy-car-server-five.vercel.app/all-toys"),
+      },
+      {
+        path: "/toy/:id",
+        element: <ToyDetails />,
+        loader: ({ params }) => fetch(`http://localhost:5000/toy/${params.id}`),
       },
     ],
   },

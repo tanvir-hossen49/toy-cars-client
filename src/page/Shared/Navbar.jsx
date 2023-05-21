@@ -47,7 +47,7 @@ const Navbar = () => {
           </li>
           <li className="list-none">
             <NavLink
-              to="add-a-toy"
+              to="add-toy"
               className={`text-base font-semibold text-gray-800 hover:text-gray-900 ${({
                 isActive,
               }) => (isActive ? "active" : "")}`}
@@ -92,7 +92,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className="relative w-full bg-white">
+    <div className="relative w-full ">
       <div className="flex items-center justify-between my-container">
         <div className="inline-flex items-center space-x-2">
           <span>

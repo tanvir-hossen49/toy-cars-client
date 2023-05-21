@@ -8,6 +8,8 @@ import Blog from "../page/Blog/Blog";
 import AllToys from "../page/AllToys/AllToys";
 import ToyDetails from "../page/Shared/ToyDetails";
 import PrivateRoutes from "./PrivateRoutes";
+import MyToys from "../page/MyToys/MyToys";
+import AddToys from "../page/AddToys/AddToys";
 
 export const router = createBrowserRouter([
   {
@@ -33,11 +35,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "all-toys",
-        element: (
-          <PrivateRoutes>
-            <AllToys />
-          </PrivateRoutes>
-        ),
+        element: <AllToys />,
         loader: () => fetch("https://toy-car-server-five.vercel.app/all-toys"),
       },
       {
@@ -47,8 +45,23 @@ export const router = createBrowserRouter([
             <ToyDetails />
           </PrivateRoutes>
         ),
-        loader: ({ params }) =>
-          fetch(`https://toy-car-server-five.vercel.app/toy/${params.id}`),
+        loader: ({ params }) => fetch(`http://localhost:5000/toy/${params.id}`),
+      },
+      {
+        path: "my-toys",
+        element: (
+          <PrivateRoutes>
+            <MyToys />
+          </PrivateRoutes>
+        ),
+      },
+      {
+        path: "add-toys",
+        element: (
+          <PrivateRoutes>
+            <AddToys />
+          </PrivateRoutes>
+        ),
       },
     ],
   },

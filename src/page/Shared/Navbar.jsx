@@ -47,7 +47,7 @@ const Navbar = () => {
           </li>
           <li className="list-none">
             <NavLink
-              to="add-toy"
+              to="add-toys"
               className={`text-base font-semibold text-gray-800 hover:text-gray-900 ${({
                 isActive,
               }) => (isActive ? "active" : "")}`}

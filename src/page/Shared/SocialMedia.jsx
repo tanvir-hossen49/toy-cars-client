@@ -1,16 +1,19 @@
 import { useContext } from "react";
 import { AuthContext } from "../../provider/AuthProvider";
 import { showToast } from "../../utilities/ShowToast";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const SocialMedia = () => {
   const { googleLogin } = useContext(AuthContext);
   const navigate = useNavigate();
 
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
+
   const handleGoogleLogin = () => {
     googleLogin().then(() => {
       showToast("success", "login successful");
-      navigate("/");
+      navigate(from, { replace: true });
     });
   };
 

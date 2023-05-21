@@ -17,7 +17,7 @@ const AllToys = () => {
 
   return (
     <div className="overflow-x-auto my-container ">
-      <h2 className="text-2xl lg:text-5xl text-center font-semibold">
+      <h2 className="text-2xl lg:text-5xl section-header text-center font-semibold">
         All Toys
       </h2>
 

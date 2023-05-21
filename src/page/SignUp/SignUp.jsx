@@ -61,7 +61,7 @@ const SignUp = () => {
         <div className="mb-2 flex justify-center">
           <img src={logo} alt="logo" className="w-32 h-28" />
         </div>
-        <h2 className="text-center text-2xl font-bold leading-tight text-black">
+        <h2 className="text-center section-header text-2xl font-bold leading-tight text-black">
           Sign up to create account
         </h2>
         <p className="mt-2 text-center text-base text-gray-600">

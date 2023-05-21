@@ -23,7 +23,7 @@ const MyToys = () => {
       confirmButtonText: "Yes, delete it!",
     }).then(result => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/my-toys/${id}`, {
+        fetch(`https://toy-car-server-five.vercel.app/my-toys/${id}`, {
           method: "DELETE",
         })
           .then(res => res.json())
@@ -39,7 +39,7 @@ const MyToys = () => {
   };
 
   useEffect(() => {
-    fetch(`http://localhost:5000/my-toys?email=${user?.email}`)
+    fetch(`https://toy-car-server-five.vercel.app/my-toys?email=${user?.email}`)
       .then(res => res.json())
       .then(data => setMyToys(data));
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -47,7 +47,7 @@ const MyToys = () => {
 
   return (
     <div className="overflow-x-auto my-container ">
-      <h2 className="text-2xl lg:text-5xl mb-5 text-center font-semibold">
+      <h2 className="text-2xl lg:text-5xl mb-5 text-center section-header font-semibold">
         My Toys
       </h2>
 
@@ -80,7 +80,7 @@ const MyToys = () => {
                 <td>{myToy.sellerName}</td>
                 <td>{myToy.name}</td>
                 <td>${myToy.price}</td>
-                <td>{myToy.quantity}</td>
+                <td>{myToy.quantity}pcs</td>
                 <td className="flex items-center gap-5 ">
                   <Link
                     to={`/my-toy/${myToy._id}`}

@@ -26,7 +26,7 @@ const UpdateToys = () => {
     console.log(product);
 
     //send to the server;
-    fetch(`http://localhost:5000/my-toy/${_id}`, {
+    fetch(`https://toy-car-server-five.vercel.app/my-toy/${_id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -42,7 +42,7 @@ const UpdateToys = () => {
   };
   return (
     <div className="my-container">
-      <h2 className="text-4xl text-center font-bold mt-4 mb-8">
+      <h2 className="text-4xl text-center font-bold mt-4 mb-8 section-header" >
         Update Toy : {name}
       </h2>
 

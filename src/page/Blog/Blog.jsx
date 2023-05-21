@@ -2,7 +2,12 @@ import useTitle from "../Hook/useTitle";
 
 const Blog = () => {
   useTitle("Blog");
-  return <div>this is blog page</div>;
+
+  return (
+    <div className="my-container">
+      <h2 className="section-header"></h2>
+    </div>
+  );
 };
 
 export default Blog;

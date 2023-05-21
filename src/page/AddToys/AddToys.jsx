@@ -33,13 +33,16 @@ const AddToys = () => {
     };
 
     try {
-      const response = await fetch("http://localhost:5000/toy", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(product),
-      });
+      const response = await fetch(
+        "https://toy-car-server-five.vercel.app/toy",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(product),
+        }
+      );
       const data = await response.json();
 
       if (data.insertedId) {
@@ -53,7 +56,9 @@ const AddToys = () => {
 
   return (
     <div className="my-container">
-      <h2 className="text-4xl text-center font-bold mt-4 mb-8">Add A Toy</h2>
+      <h2 className="text-4xl text-center font-bold mt-4 mb-8 section-header">
+        Add A Toy
+      </h2>
 
       <form onSubmit={handleSubmit} className="space-y-4">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">

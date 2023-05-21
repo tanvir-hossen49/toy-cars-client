@@ -58,10 +58,16 @@ const MyToys = () => {
         My Toys
       </h2>
 
-      <select value={sortType} onChange={handleSortTypeChange}>
-        <option value="ascending">Price (Ascending)</option>
-        <option value="descending">Price (Descending)</option>
-      </select>
+      <div className="text-right mb-5">
+        <select
+          className=" p-5 border"
+          value={sortType}
+          onChange={handleSortTypeChange}
+        >
+          <option value="ascending">Price (Ascending)</option>
+          <option value="descending">Price (Descending)</option>
+        </select>
+      </div>
 
       <table className="table table-compact w-full">
         <thead>

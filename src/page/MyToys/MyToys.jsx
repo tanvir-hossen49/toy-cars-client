@@ -9,6 +9,7 @@ import { Link } from "react-router-dom";
 const MyToys = () => {
   const { user } = useContext(AuthContext);
   const [myToys, setMyToys] = useState([]);
+  const [sortType, setSortType] = useState("descending");
 
   useTitle("My Toy");
 
@@ -39,17 +40,28 @@ const MyToys = () => {
   };
 
   useEffect(() => {
-    fetch(`https://toy-car-server-five.vercel.app/my-toys?email=${user?.email}`)
+    fetch(
+      `https://toy-car-server-five.vercel.app/my-toys?email=${user?.email}&sortType=${sortType}`
+    )
       .then(res => res.json())
       .then(data => setMyToys(data));
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [sortType]);
+
+  const handleSortTypeChange = event => {
+    setSortType(event.target.value);
+  };
 
   return (
     <div className="overflow-x-auto my-container ">
       <h2 className="text-2xl lg:text-5xl mb-5 text-center section-header font-semibold">
         My Toys
       </h2>
+
+      <select value={sortType} onChange={handleSortTypeChange}>
+        <option value="ascending">Price (Ascending)</option>
+        <option value="descending">Price (Descending)</option>
+      </select>
 
       <table className="table table-compact w-full">
         <thead>

@@ -103,7 +103,7 @@ const Blog = () => {
             for Node.js. It provides a simple, minimalistic, and flexible set of
             features for building web applications and APIs. Express.js is
             designed to be unopinionated, allowing developers to have more
-            control and flexibility over their application's structure and
+            control and flexibility over their application{"'"}s structure and
             functionality.
           </p>
 

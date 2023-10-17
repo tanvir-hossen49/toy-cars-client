@@ -1,6 +1,5 @@
 import { Quote } from "lucide-react";
 
-
 const ReviewCard = ({ review }) => {
   const { name, message, designation, img } = review;
   return (

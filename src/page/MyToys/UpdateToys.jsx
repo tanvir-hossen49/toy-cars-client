@@ -23,7 +23,6 @@ const UpdateToys = () => {
       description,
     };
 
-    console.log(product);
 
     //send to the server;
     fetch(`https://toy-car-server-five.vercel.app/my-toy/${_id}`, {

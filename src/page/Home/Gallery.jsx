@@ -1,11 +1,9 @@
+import SectionTitle from "../../components/sectionTitle";
+
 const Gallery = () => {
   return (
     <div className="my-container">
-      <h4 className="text-center section-header leading-snug my-5 md:text-4xl text-2xl font-semibold">
-        Discover a Miniature World
-        <br />
-        Explore Our Toy Car Image Gallery
-      </h4>
+      <SectionTitle title={`Explore Our Toy Car Image Gallery`} />
       <div className="flex flex-wrap ">
         <div className="flex md:w-1/2 flex-wrap">
           <div

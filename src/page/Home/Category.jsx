@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import RatingComponent from "../Shared/RatingComponent";
 const Category = ({ category }) => {
-  const { _id, toyName, price, photoURL, ratings } = category;
+  const { _id, name, price, photoURL, ratings } = category;
   return (
     <div className="w-full mt-5 relative rounded-md border overflow-hidden space-y-5">
       <img
@@ -10,7 +10,7 @@ const Category = ({ category }) => {
         className="h-1/2 hover:scale-105 transition-transform duration-300  w-full rounded-md object-cover"
       />
       <div className="p-4 h-1/2  flex flex-col">
-        <h1 className="text-2xl font-semibold">{toyName}</h1>
+        <h1 className="text-2xl font-semibold">{name}</h1>
 
         <div className="flex justify-between flex-wrap items-center">
           <p className="mt-3 text-2xl text-gray-600">${price}</p>

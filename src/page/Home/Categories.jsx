@@ -2,24 +2,33 @@ import { useEffect, useState } from "react";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 import Category from "./Category";
+import SectionTitle from "../../components/sectionTitle";
 
 const categoriesList = ["Sports Cars", "Police Car", "Truck"];
 
 const Categories = () => {
   const [categories, setCategories] = useState([]);
   const [activeTab, setActiveTab] = useState("Sports Cars");
-  //https://toy-car-server-five.vercel.app/category/${activeTab}
+
   useEffect(() => {
-    fetch(`https://toy-car-server-five.vercel.app/category/${activeTab}`)
-      .then(res => res.json())
-      .then(data => setCategories(data));
+    const fetchCategories = async () => {
+      try {
+        const response = await fetch(
+          `https://toy-car-server-five.vercel.app/category/${activeTab}`
+        );
+        const data = await response.json();
+        setCategories(data);
+      } catch (error) {
+        console.log("Error fetching categories:", error);
+      }
+    };
+
+    fetchCategories();
   }, [activeTab]);
 
   return (
     <div className="my-container">
-      <h2 className="text-center font-bold md:text-4xl text-3xl mb-5 section-header">
-        Shop By Category
-      </h2>
+      <SectionTitle title="shop by category" />
 
       <Tabs>
         <TabList className="px-5 py-5 flex  bg-orange-100 rounded-lg justify-center gap-5">
